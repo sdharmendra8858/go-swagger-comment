@@ -1,1 +1,1 @@
-export * from './api/api.comment'
+export * from "./api/api.comment";

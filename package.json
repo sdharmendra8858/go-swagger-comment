@@ -1,6 +1,10 @@
 {
   "name": "go-swagger-comment",
   "displayName": "go swagger comment",
+  "repository": {
+    "type": "git",
+    "directory": "https://github.com/sdharmendra8858/go-swagger-comment.git"
+  },
   "description": "",
   "version": "0.0.1",
   "engines": {
