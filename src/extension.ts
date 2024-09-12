@@ -1,26 +1,57 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
 
-// This method is called when your extension is activated
-// Your extension is activated the very first time the command is executed
+import { identifyCodeBlock } from "./helper";
+import { SnippetMapper } from "./constants";
+
 export function activate(context: vscode.ExtensionContext) {
+  console.log(
+    'Congratulations, your extension "go-swagger-comment" is now active!'
+  );
 
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "go-swagger-comment" is now active!');
+  const disposable = vscode.commands.registerCommand(
+    "go-swagger-comment.genComment",
+    () => {
+      const editor = vscode.window.activeTextEditor;
 
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	const disposable = vscode.commands.registerCommand('go-swagger-comment.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from go swagger comment!');
-	});
+      if (!editor || editor.document.languageId !== "go") {
+        vscode.window.showErrorMessage(
+          "Please use this command in an Go file."
+        );
+        return;
+      }
 
-	context.subscriptions.push(disposable);
+      const selection = editor.selection;
+      if (selection && !selection.isEmpty) {
+        const selectionRange = new vscode.Range(
+          selection.start.line,
+          0,
+          selection.end.line,
+          0
+        );
+        const highlighted = editor.document.getText(selectionRange);
+        const codeBlock = identifyCodeBlock(highlighted);
+
+        if (codeBlock) {
+          editor.insertSnippet(
+            SnippetMapper[codeBlock],
+            new vscode.Position(selection.start.line - 1, 0)
+          );
+        } else {
+          vscode.window.showInformationMessage(
+            "Invalid code selection made for api comment generation"
+          );
+          return;
+        }
+      } else {
+        vscode.window.showInformationMessage("No selection made");
+        return;
+      }
+
+      vscode.window.showInformationMessage("Comment generated");
+    }
+  );
+
+  context.subscriptions.push(disposable);
 }
 
-// This method is called when your extension is deactivated
 export function deactivate() {}

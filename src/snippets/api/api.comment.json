@@ -1,0 +1,18 @@
+{
+  "Go Comment": {
+    "prefix": "go-comment",
+    "body": [
+      "",
+      "// @Tags ${1:Default}",
+      "// @Summary ${2:Summary}",
+      "// @Description ${2:It is the description}",
+      "// @Accept ${3:json}",
+      "// @Param ${4:Param} ${5:Path} ${6:type} ${7:true} '${8:description}'",
+      "// @Produce ${9:json}",
+      "// @Success 200 {object} ${10:Model}",
+      "// @Failure 400  {object}  ${11:Model}",
+      "// @Router ${12:Path} [${0:Method}]"
+    ],
+    "description": "A snippet for Swagger comments in Go"
+  }
+}

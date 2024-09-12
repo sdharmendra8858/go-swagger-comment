@@ -1,0 +1,3 @@
+export enum CODE_BLOCK {
+  API_FUNCTION = "API_FUNCTION",
+}

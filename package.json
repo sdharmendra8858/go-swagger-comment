@@ -7,15 +7,22 @@
     "vscode": "^1.88.1"
   },
   "categories": [
-    "Other"
+    "Other",
+    "Snippets"
   ],
   "activationEvents": [],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
       {
-        "command": "go-swagger-comment.helloWorld",
-        "title": "Hello World"
+        "command": "go-swagger-comment.genComment",
+        "title": "Gen Swagger Comment"
+      }
+    ],
+    "snippets": [
+      {
+        "language": "go",
+        "path": "./src/snippets/api/api.comment.json"
       }
     ]
   },
