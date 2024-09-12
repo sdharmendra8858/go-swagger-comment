@@ -1,71 +1,90 @@
-# go-swagger-comment README
+# Go Swagger Comment Extension
 
-This is the README for your extension "go-swagger-comment". After writing up a brief description, we recommend including the following sections.
+**Go Swagger Comment** is a Visual Studio Code extension that simplifies the process of generating Swagger comments for Go code. The extension allows developers to highlight a block of Go code and generate API comments automatically based on the selected code snippet.
 
 ## Features
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+- **Automatic Swagger Comment Generation**: Quickly generate Swagger comments for highlighted Go code snippets.
+- **Go Language Support**: Designed specifically for Go programming language files.
+- **Easy-to-use Commands**: Use the command palette or keyboard shortcuts to trigger comment generation.
 
-For example if there is an image subfolder under your extension project workspace:
+## Installation
 
-\!\[feature X\]\(images/feature-x.png\)
+### From the Visual Studio Code Marketplace
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+1. Open Visual Studio Code.
+2. Go to the Extensions view by clicking on the Extensions icon in the Activity Bar on the side of the window or pressing `Ctrl+Shift+X`.
+3. Search for "go-swagger-comment".
+4. Click the "Install" button.
+
+### Manual Installation
+
+1. Download the extension package from the [releases](https://github.com/sdharmendra8858/go-swagger-comment/releases) page.
+2. Open Visual Studio Code and go to the Extensions view.
+3. Click on the three dots at the top-right corner and choose "Install from VSIX...".
+4. Select the downloaded `.vsix` file to install.
+
+## Usage
+
+1. Open any Go (`.go`) file in Visual Studio Code.
+2. Highlight the Go code block you want to generate a Swagger comment for.
+3. **Use the Keyboard Shortcut**: Press `Ctrl+Shift+F` to generate a Swagger comment.
+4. Alternatively, open the command palette (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS), search for `Gen Swagger Comment`, and press `Enter`.
+
+### Keybindings
+
+- **`Ctrl+Shift+F`** : Generate Swagger Comment for the highlighted Go code block.
+
+## Commands
+
+- **`go-swagger-comment.genComment`**: Generates a Swagger comment for the highlighted Go code block.
 
 ## Requirements
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+- Visual Studio Code version `1.88.1` or higher.
+- Go extension for Visual Studio Code (recommended for Go development).
 
-## Extension Settings
+## Configuration
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+This extension does not require any specific configuration. However, to customize the generated comments or enhance the functionality, you may modify the `SnippetMapper` in `./src/constants.ts` or the `identifyCodeBlock` function in `./src/helper.ts`.
 
-For example:
+## Development
 
-This extension contributes the following settings:
+If you want to contribute to the development of this extension, follow these steps to set up the project locally:
 
-* `myExtension.enable`: Enable/disable this extension.
-* `myExtension.thing`: Set to `blah` to do something.
+### Prerequisites
 
-## Known Issues
+- [Node.js](https://nodejs.org/) (version 16.x or higher)
+- [npm](https://www.npmjs.com/) (version 7.x or higher)
+- [Visual Studio Code](https://code.visualstudio.com/)
 
-Calling out known issues can help limit users opening duplicate issues against your extension.
+### Setup
 
-## Release Notes
+1. Clone the repository:
 
-Users appreciate release notes as you update your extension.
+    ```bash
+    git clone https://github.com/sdharmendra8858/go-swagger-comment.git
+    cd go-swagger-comment
+    ```
 
-### 1.0.0
+2. Install dependencies:
 
-Initial release of ...
+    ```bash
+    npm install
+    ```
 
-### 1.0.1
+3. Build the extension:
 
-Fixed issue #.
+    ```bash
+    npm run compile
+    ```
 
-### 1.1.0
+4. Open the extension in Visual Studio Code:
 
-Added features X, Y, and Z.
+    ```bash
+    code .
+    ```
 
----
+5. Run the extension:
 
-## Following extension guidelines
-
-Ensure that you've read through the extensions guidelines and follow the best practices for creating your extension.
-
-* [Extension Guidelines](https://code.visualstudio.com/api/references/extension-guidelines)
-
-## Working with Markdown
-
-You can author your README using Visual Studio Code. Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux).
-* Toggle preview (`Shift+Cmd+V` on macOS or `Shift+Ctrl+V` on Windows and Linux).
-* Press `Ctrl+Space` (Windows, Linux, macOS) to see a list of Markdown snippets.
-
-## For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+   - Press `F5` to open a new VSCode window with the extension loaded.

@@ -10,7 +10,9 @@
     "Other",
     "Snippets"
   ],
-  "activationEvents": [],
+  "activationEvents": [
+    "onLanguage:go"
+  ],
   "main": "./dist/extension.js",
   "contributes": {
     "commands": [
@@ -23,6 +25,13 @@
       {
         "language": "go",
         "path": "./src/snippets/api/api.comment.json"
+      }
+    ],
+    "keybindings": [
+      {
+        "command": "go-swagger-comment.genComment",
+        "key": "ctrl+shift+f",
+        "when": "editorTextFocus"
       }
     ]
   },
