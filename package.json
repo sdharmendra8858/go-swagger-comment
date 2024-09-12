@@ -1,6 +1,7 @@
 {
   "name": "go-swagger-comment",
   "displayName": "go swagger comment",
+  "publisher": "redonetech",
   "repository": {
     "type": "git",
     "directory": "https://github.com/sdharmendra8858/go-swagger-comment.git"
